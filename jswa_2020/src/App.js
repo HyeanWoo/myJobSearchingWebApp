@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import Practice from './components/Practice';
+// import Practice2 from './components/Practice2';
+// import AddPractice from './components/AddPractice';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Navbar from './router/Navbar';
+import Home from './router/Home';
+import About from './router/About';
+import Content from './router/Content';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  // state = {
+  //   ninjas : [
+  //     {name: "Ryu", age: 30, belt: "black", id:1},
+  //     {name: "Yoshi", age: 25, belt: "green", id:2},
+  //     {name: "Crystal", age: 22, belt: "pink", id:3}
+  //   ]
+  // };
+  // addFunc = (someone) => {
+  //   someone.id = Math.random();
+  //   let ninjas = [...this.state.ninjas, someone];
+  //   this.setState({
+  //     ninjas : ninjas
+  //     // ninjas : [...this.state.ninjas, someone]
+  //   })
+  // }
+  // deleteFunc = (id) => {
+  //   let ninjas = this.state.ninjas.filter(ninja => {
+  //     return ninja.id !== id
+  //   })
+  //   this.setState({
+  //     ninjas : ninjas
+  //   })
+  // }
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/content" component={Content}/>
+          {/* <Practice/> */}
+          {/* <Practice2 ninjas={this.state.ninjas} deleteFunc={this.deleteFunc}/> */}
+          {/* <AddPractice addFunc={this.addFunc}/> */}
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
