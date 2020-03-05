@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-class Practice extends React.Component {
+class Practice extends Component {
   state = {
     name : "Ryu",
     age : 30
