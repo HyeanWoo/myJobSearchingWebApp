@@ -28,8 +28,8 @@ class AddPractice extends Component {
           <input type="number" id="age" onChange={this.handleChange}/>
           <label htmlFor="belt">Belt:</label>
           <input type="text" id="belt" onChange={this.handleChange}/>
-          <button>submit</button>
         </form>
+          <button onClick={this.handleSubmit}>submit</button>
       </div>
     );
   }
