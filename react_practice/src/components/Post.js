@@ -38,10 +38,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatch = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     deletePost : (id) => { dispatch(deletePost(id)) }
   }
 }
 
-export default connect(mapStateToProps, mapDispatch) (Post);
+export default connect(mapStateToProps, mapDispatchToProps) (Post);
