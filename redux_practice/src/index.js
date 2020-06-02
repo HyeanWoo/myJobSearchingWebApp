@@ -16,15 +16,24 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reduxFirestore(fbConfig)
+    reduxFirestore(firebase, fbConfig)
   )
 );
 
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true,
+  // enableRedirectHandling: false,
+  // resetBeforeLogin: false
+}
+
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
+  createFirestoreInstance,
+  // presence: 'presence',
+  // sessions: 'sessions'
 }
 
 function AuthIsLoaded({ children }) {
